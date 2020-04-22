@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      UPLOAD EXCEL
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="center">
+    <ngx-file-drop (onFileDrop)="dropped($event)" 
+                   (onFileOver)="fileOver($event)"
+                   (onFileLeave)="fileLeave($event)"
+                  >
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+           Arrastra y suelta tu archivo aqui 
+        </ng-template>
+    </ngx-file-drop>
+</div>
+
+<input type="file" (change)="onFileChange($event)" multiple="false" />
+	<table class="sjs-table">
+		<tbody>
+      <tr *ngFor="let row of data">
+			<td *ngFor="let val of row">
+				{{val}}
+			</td>
+		</tr>
+    </tbody>
+  </table>
+  
+</ion-content>
